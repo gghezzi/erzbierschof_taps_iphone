@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A24E0967177451EF00DC79DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0966177451EF00DC79DE /* UIKit.framework */; };
+		A24E0969177451EF00DC79DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0968177451EF00DC79DE /* Foundation.framework */; };
+		A24E096B177451EF00DC79DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E096A177451EF00DC79DE /* CoreGraphics.framework */; };
+		A24E0971177451EF00DC79DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24E096F177451EF00DC79DE /* InfoPlist.strings */; };
+		A24E0973177451EF00DC79DE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0972177451EF00DC79DE /* main.m */; };
+		A24E0977177451EF00DC79DE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0976177451EF00DC79DE /* AppDelegate.m */; };
+		A24E0979177451EF00DC79DE /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A24E0978177451EF00DC79DE /* Default.png */; };
+		A24E097B177451EF00DC79DE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A24E097A177451EF00DC79DE /* Default@2x.png */; };
+		A24E097D177451EF00DC79DE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A24E097C177451EF00DC79DE /* Default-568h@2x.png */; };
+		A24E0980177451EF00DC79DE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */; };
+		A24E0983177451EF00DC79DE /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24E0981177451EF00DC79DE /* MainStoryboard_iPad.storyboard */; };
+		A24E0986177451EF00DC79DE /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0985177451EF00DC79DE /* MasterViewController.m */; };
+		A24E0989177451EF00DC79DE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0988177451EF00DC79DE /* DetailViewController.m */; };
+		A24E0991177451EF00DC79DE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0990177451EF00DC79DE /* SenTestingKit.framework */; };
+		A24E0992177451EF00DC79DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0966177451EF00DC79DE /* UIKit.framework */; };
+		A24E0993177451EF00DC79DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0968177451EF00DC79DE /* Foundation.framework */; };
+		A24E099B177451F000DC79DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24E0999177451F000DC79DE /* InfoPlist.strings */; };
+		A24E099E177451F000DC79DE /* ErzbierschofsTapsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E099D177451F000DC79DE /* ErzbierschofsTapsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A24E0994177451EF00DC79DE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A24E095B177451EF00DC79DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A24E0962177451EF00DC79DE;
+			remoteInfo = ErzbierschofsTaps;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A24E0963177451EF00DC79DE /* ErzbierschofsTaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ErzbierschofsTaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24E0966177451EF00DC79DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A24E0968177451EF00DC79DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A24E096A177451EF00DC79DE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A24E096E177451EF00DC79DE /* ErzbierschofsTaps-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ErzbierschofsTaps-Info.plist"; sourceTree = "<group>"; };
+		A24E0970177451EF00DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A24E0972177451EF00DC79DE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A24E0974177451EF00DC79DE /* ErzbierschofsTaps-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ErzbierschofsTaps-Prefix.pch"; sourceTree = "<group>"; };
+		A24E0975177451EF00DC79DE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A24E0976177451EF00DC79DE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A24E0978177451EF00DC79DE /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A24E097A177451EF00DC79DE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		A24E097C177451EF00DC79DE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		A24E097F177451EF00DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		A24E0982177451EF00DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		A24E0984177451EF00DC79DE /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		A24E0985177451EF00DC79DE /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		A24E0987177451EF00DC79DE /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A24E0988177451EF00DC79DE /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ErzbierschofsTapsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A24E0990177451EF00DC79DE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A24E0998177451F000DC79DE /* ErzbierschofsTapsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ErzbierschofsTapsTests-Info.plist"; sourceTree = "<group>"; };
+		A24E099A177451F000DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A24E099C177451F000DC79DE /* ErzbierschofsTapsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErzbierschofsTapsTests.h; sourceTree = "<group>"; };
+		A24E099D177451F000DC79DE /* ErzbierschofsTapsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErzbierschofsTapsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A24E0960177451EF00DC79DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24E0967177451EF00DC79DE /* UIKit.framework in Frameworks */,
+				A24E0969177451EF00DC79DE /* Foundation.framework in Frameworks */,
+				A24E096B177451EF00DC79DE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A24E098B177451EF00DC79DE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24E0991177451EF00DC79DE /* SenTestingKit.framework in Frameworks */,
+				A24E0992177451EF00DC79DE /* UIKit.framework in Frameworks */,
+				A24E0993177451EF00DC79DE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A24E095A177451EF00DC79DE = {
+			isa = PBXGroup;
+			children = (
+				A24E096C177451EF00DC79DE /* ErzbierschofsTaps */,
+				A24E0996177451EF00DC79DE /* ErzbierschofsTapsTests */,
+				A24E0965177451EF00DC79DE /* Frameworks */,
+				A24E0964177451EF00DC79DE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A24E0964177451EF00DC79DE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A24E0963177451EF00DC79DE /* ErzbierschofsTaps.app */,
+				A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A24E0965177451EF00DC79DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A24E0966177451EF00DC79DE /* UIKit.framework */,
+				A24E0968177451EF00DC79DE /* Foundation.framework */,
+				A24E096A177451EF00DC79DE /* CoreGraphics.framework */,
+				A24E0990177451EF00DC79DE /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A24E096C177451EF00DC79DE /* ErzbierschofsTaps */ = {
+			isa = PBXGroup;
+			children = (
+				A24E0975177451EF00DC79DE /* AppDelegate.h */,
+				A24E0976177451EF00DC79DE /* AppDelegate.m */,
+				A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */,
+				A24E0981177451EF00DC79DE /* MainStoryboard_iPad.storyboard */,
+				A24E0984177451EF00DC79DE /* MasterViewController.h */,
+				A24E0985177451EF00DC79DE /* MasterViewController.m */,
+				A24E0987177451EF00DC79DE /* DetailViewController.h */,
+				A24E0988177451EF00DC79DE /* DetailViewController.m */,
+				A24E096D177451EF00DC79DE /* Supporting Files */,
+			);
+			path = ErzbierschofsTaps;
+			sourceTree = "<group>";
+		};
+		A24E096D177451EF00DC79DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A24E096E177451EF00DC79DE /* ErzbierschofsTaps-Info.plist */,
+				A24E096F177451EF00DC79DE /* InfoPlist.strings */,
+				A24E0972177451EF00DC79DE /* main.m */,
+				A24E0974177451EF00DC79DE /* ErzbierschofsTaps-Prefix.pch */,
+				A24E0978177451EF00DC79DE /* Default.png */,
+				A24E097A177451EF00DC79DE /* Default@2x.png */,
+				A24E097C177451EF00DC79DE /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A24E0996177451EF00DC79DE /* ErzbierschofsTapsTests */ = {
+			isa = PBXGroup;
+			children = (
+				A24E099C177451F000DC79DE /* ErzbierschofsTapsTests.h */,
+				A24E099D177451F000DC79DE /* ErzbierschofsTapsTests.m */,
+				A24E0997177451F000DC79DE /* Supporting Files */,
+			);
+			path = ErzbierschofsTapsTests;
+			sourceTree = "<group>";
+		};
+		A24E0997177451F000DC79DE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A24E0998177451F000DC79DE /* ErzbierschofsTapsTests-Info.plist */,
+				A24E0999177451F000DC79DE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A24E0962177451EF00DC79DE /* ErzbierschofsTaps */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A24E09A1177451F000DC79DE /* Build configuration list for PBXNativeTarget "ErzbierschofsTaps" */;
+			buildPhases = (
+				A24E095F177451EF00DC79DE /* Sources */,
+				A24E0960177451EF00DC79DE /* Frameworks */,
+				A24E0961177451EF00DC79DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ErzbierschofsTaps;
+			productName = ErzbierschofsTaps;
+			productReference = A24E0963177451EF00DC79DE /* ErzbierschofsTaps.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A24E098E177451EF00DC79DE /* ErzbierschofsTapsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A24E09A4177451F000DC79DE /* Build configuration list for PBXNativeTarget "ErzbierschofsTapsTests" */;
+			buildPhases = (
+				A24E098A177451EF00DC79DE /* Sources */,
+				A24E098B177451EF00DC79DE /* Frameworks */,
+				A24E098C177451EF00DC79DE /* Resources */,
+				A24E098D177451EF00DC79DE /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A24E0995177451EF00DC79DE /* PBXTargetDependency */,
+			);
+			name = ErzbierschofsTapsTests;
+			productName = ErzbierschofsTapsTests;
+			productReference = A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A24E095B177451EF00DC79DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Giacomo Ghezzi";
+			};
+			buildConfigurationList = A24E095E177451EF00DC79DE /* Build configuration list for PBXProject "ErzbierschofsTaps" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A24E095A177451EF00DC79DE;
+			productRefGroup = A24E0964177451EF00DC79DE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A24E0962177451EF00DC79DE /* ErzbierschofsTaps */,
+				A24E098E177451EF00DC79DE /* ErzbierschofsTapsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A24E0961177451EF00DC79DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24E0971177451EF00DC79DE /* InfoPlist.strings in Resources */,
+				A24E0979177451EF00DC79DE /* Default.png in Resources */,
+				A24E097B177451EF00DC79DE /* Default@2x.png in Resources */,
+				A24E097D177451EF00DC79DE /* Default-568h@2x.png in Resources */,
+				A24E0980177451EF00DC79DE /* MainStoryboard_iPhone.storyboard in Resources */,
+				A24E0983177451EF00DC79DE /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A24E098C177451EF00DC79DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24E099B177451F000DC79DE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A24E098D177451EF00DC79DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A24E095F177451EF00DC79DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24E0973177451EF00DC79DE /* main.m in Sources */,
+				A24E0977177451EF00DC79DE /* AppDelegate.m in Sources */,
+				A24E0986177451EF00DC79DE /* MasterViewController.m in Sources */,
+				A24E0989177451EF00DC79DE /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A24E098A177451EF00DC79DE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A24E099E177451F000DC79DE /* ErzbierschofsTapsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A24E0995177451EF00DC79DE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A24E0962177451EF00DC79DE /* ErzbierschofsTaps */;
+			targetProxy = A24E0994177451EF00DC79DE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A24E096F177451EF00DC79DE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24E0970177451EF00DC79DE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24E097F177451EF00DC79DE /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		A24E0981177451EF00DC79DE /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24E0982177451EF00DC79DE /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		A24E0999177451F000DC79DE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A24E099A177451F000DC79DE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A24E099F177451F000DC79DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A24E09A0177451F000DC79DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A24E09A2177451F000DC79DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
+				INFOPLIST_FILE = "ErzbierschofsTaps/ErzbierschofsTaps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A24E09A3177451F000DC79DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
+				INFOPLIST_FILE = "ErzbierschofsTaps/ErzbierschofsTaps-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		A24E09A5177451F000DC79DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ErzbierschofsTaps.app/ErzbierschofsTaps";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
+				INFOPLIST_FILE = "ErzbierschofsTapsTests/ErzbierschofsTapsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		A24E09A6177451F000DC79DE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ErzbierschofsTaps.app/ErzbierschofsTaps";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
+				INFOPLIST_FILE = "ErzbierschofsTapsTests/ErzbierschofsTapsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A24E095E177451EF00DC79DE /* Build configuration list for PBXProject "ErzbierschofsTaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24E099F177451F000DC79DE /* Debug */,
+				A24E09A0177451F000DC79DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A24E09A1177451F000DC79DE /* Build configuration list for PBXNativeTarget "ErzbierschofsTaps" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24E09A2177451F000DC79DE /* Debug */,
+				A24E09A3177451F000DC79DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		A24E09A4177451F000DC79DE /* Build configuration list for PBXNativeTarget "ErzbierschofsTapsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A24E09A5177451F000DC79DE /* Debug */,
+				A24E09A6177451F000DC79DE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A24E095B177451EF00DC79DE /* Project object */;
+}
