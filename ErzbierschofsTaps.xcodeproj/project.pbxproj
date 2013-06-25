@@ -32,6 +32,8 @@
 		A24E09BB1774718600DC79DE /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B81774718600DC79DE /* XPathQuery.m */; };
 		A24E09BD1774721600DC79DE /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E09BC1774721600DC79DE /* libxml2.2.dylib */; };
 		A2852C8917799D0E00001FFA /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2852C8817799CD700001FFA /* libMBProgressHUD.a */; };
+		A2852C911779CCD600001FFA /* erz_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2852C901779CCD600001FFA /* erz_icon.png */; };
+		A2852C951779CD3700001FFA /* erz_icon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A2852C941779CD3700001FFA /* erz_icon_retina.png */; };
 		A2AF3105177884F1008F106F /* TapTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2AF3104177884F1008F106F /* TapTableCell.xib */; };
 		A2AF31081778862B008F106F /* TapTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AF31071778862B008F106F /* TapTableCell.m */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,8 @@
 		A24E09B81774718600DC79DE /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = "../../../../../Downloads/hpple-master/XPathQuery.m"; sourceTree = "<group>"; };
 		A24E09BC1774721600DC79DE /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = "../../../../Downloads/MBProgressHUD-master/MBProgressHUD.xcodeproj"; sourceTree = "<group>"; };
+		A2852C901779CCD600001FFA /* erz_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = erz_icon.png; path = ../erz_icon.png; sourceTree = "<group>"; };
+		A2852C941779CD3700001FFA /* erz_icon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = erz_icon_retina.png; path = ../erz_icon_retina.png; sourceTree = "<group>"; };
 		A2AF3104177884F1008F106F /* TapTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapTableCell.xib; sourceTree = "<group>"; };
 		A2AF31061778862B008F106F /* TapTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapTableCell.h; sourceTree = "<group>"; };
 		A2AF31071778862B008F106F /* TapTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapTableCell.m; sourceTree = "<group>"; };
@@ -132,8 +136,8 @@
 		A24E095A177451EF00DC79DE = {
 			isa = PBXGroup;
 			children = (
-				A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */,
 				A24E09BC1774721600DC79DE /* libxml2.2.dylib */,
+				A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */,
 				A24E096C177451EF00DC79DE /* ErzbierschofsTaps */,
 				A24E0996177451EF00DC79DE /* ErzbierschofsTapsTests */,
 				A24E0965177451EF00DC79DE /* Frameworks */,
@@ -175,6 +179,8 @@
 		A24E096D177451EF00DC79DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A2852C941779CD3700001FFA /* erz_icon_retina.png */,
+				A2852C901779CCD600001FFA /* erz_icon.png */,
 				A24E096E177451EF00DC79DE /* ErzbierschofsTaps-Info.plist */,
 				A24E096F177451EF00DC79DE /* InfoPlist.strings */,
 				A24E0972177451EF00DC79DE /* main.m */,
@@ -350,6 +356,8 @@
 				A24E0980177451EF00DC79DE /* MainStoryboard_iPhone.storyboard in Resources */,
 				A24E0983177451EF00DC79DE /* MainStoryboard_iPad.storyboard in Resources */,
 				A2AF3105177884F1008F106F /* TapTableCell.xib in Resources */,
+				A2852C911779CCD600001FFA /* erz_icon.png in Resources */,
+				A2852C951779CD3700001FFA /* erz_icon_retina.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
