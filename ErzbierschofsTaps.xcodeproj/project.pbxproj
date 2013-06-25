@@ -25,6 +25,15 @@
 		A24E0993177451EF00DC79DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0968177451EF00DC79DE /* Foundation.framework */; };
 		A24E099B177451F000DC79DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24E0999177451F000DC79DE /* InfoPlist.strings */; };
 		A24E099E177451F000DC79DE /* ErzbierschofsTapsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E099D177451F000DC79DE /* ErzbierschofsTapsTests.m */; };
+		A24E09AC1774579700DC79DE /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09AB1774579700DC79DE /* Bar.m */; };
+		A24E09B017745EAA00DC79DE /* TapInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09AF17745EAA00DC79DE /* TapInfo.m */; };
+		A24E09B91774718600DC79DE /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B41774718600DC79DE /* TFHpple.m */; };
+		A24E09BA1774718600DC79DE /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B61774718600DC79DE /* TFHppleElement.m */; };
+		A24E09BB1774718600DC79DE /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B81774718600DC79DE /* XPathQuery.m */; };
+		A24E09BD1774721600DC79DE /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E09BC1774721600DC79DE /* libxml2.2.dylib */; };
+		A2852C8917799D0E00001FFA /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2852C8817799CD700001FFA /* libMBProgressHUD.a */; };
+		A2AF3105177884F1008F106F /* TapTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2AF3104177884F1008F106F /* TapTableCell.xib */; };
+		A2AF31081778862B008F106F /* TapTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AF31071778862B008F106F /* TapTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +43,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = A24E0962177451EF00DC79DE;
 			remoteInfo = ErzbierschofsTaps;
+		};
+		A2852C8717799CD700001FFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D286A7491518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
+		};
+		A2852C8A17799D2000001FFA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D286A7481518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -63,6 +86,21 @@
 		A24E099A177451F000DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A24E099C177451F000DC79DE /* ErzbierschofsTapsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErzbierschofsTapsTests.h; sourceTree = "<group>"; };
 		A24E099D177451F000DC79DE /* ErzbierschofsTapsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErzbierschofsTapsTests.m; sourceTree = "<group>"; };
+		A24E09AA1774579700DC79DE /* Bar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bar.h; sourceTree = "<group>"; };
+		A24E09AB1774579700DC79DE /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
+		A24E09AE17745EAA00DC79DE /* TapInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapInfo.h; sourceTree = "<group>"; };
+		A24E09AF17745EAA00DC79DE /* TapInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapInfo.m; sourceTree = "<group>"; };
+		A24E09B31774718600DC79DE /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = "../../../../../Downloads/hpple-master/TFHpple.h"; sourceTree = "<group>"; };
+		A24E09B41774718600DC79DE /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = "../../../../../Downloads/hpple-master/TFHpple.m"; sourceTree = "<group>"; };
+		A24E09B51774718600DC79DE /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = "../../../../../Downloads/hpple-master/TFHppleElement.h"; sourceTree = "<group>"; };
+		A24E09B61774718600DC79DE /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = "../../../../../Downloads/hpple-master/TFHppleElement.m"; sourceTree = "<group>"; };
+		A24E09B71774718600DC79DE /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = "../../../../../Downloads/hpple-master/XPathQuery.h"; sourceTree = "<group>"; };
+		A24E09B81774718600DC79DE /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = "../../../../../Downloads/hpple-master/XPathQuery.m"; sourceTree = "<group>"; };
+		A24E09BC1774721600DC79DE /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
+		A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = "../../../../Downloads/MBProgressHUD-master/MBProgressHUD.xcodeproj"; sourceTree = "<group>"; };
+		A2AF3104177884F1008F106F /* TapTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapTableCell.xib; sourceTree = "<group>"; };
+		A2AF31061778862B008F106F /* TapTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapTableCell.h; sourceTree = "<group>"; };
+		A2AF31071778862B008F106F /* TapTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +108,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2852C8917799D0E00001FFA /* libMBProgressHUD.a in Frameworks */,
+				A24E09BD1774721600DC79DE /* libxml2.2.dylib in Frameworks */,
 				A24E0967177451EF00DC79DE /* UIKit.framework in Frameworks */,
 				A24E0969177451EF00DC79DE /* Foundation.framework in Frameworks */,
 				A24E096B177451EF00DC79DE /* CoreGraphics.framework in Frameworks */,
@@ -92,6 +132,8 @@
 		A24E095A177451EF00DC79DE = {
 			isa = PBXGroup;
 			children = (
+				A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */,
+				A24E09BC1774721600DC79DE /* libxml2.2.dylib */,
 				A24E096C177451EF00DC79DE /* ErzbierschofsTaps */,
 				A24E0996177451EF00DC79DE /* ErzbierschofsTapsTests */,
 				A24E0965177451EF00DC79DE /* Frameworks */,
@@ -122,14 +164,9 @@
 		A24E096C177451EF00DC79DE /* ErzbierschofsTaps */ = {
 			isa = PBXGroup;
 			children = (
-				A24E0975177451EF00DC79DE /* AppDelegate.h */,
-				A24E0976177451EF00DC79DE /* AppDelegate.m */,
-				A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */,
-				A24E0981177451EF00DC79DE /* MainStoryboard_iPad.storyboard */,
-				A24E0984177451EF00DC79DE /* MasterViewController.h */,
-				A24E0985177451EF00DC79DE /* MasterViewController.m */,
-				A24E0987177451EF00DC79DE /* DetailViewController.h */,
-				A24E0988177451EF00DC79DE /* DetailViewController.m */,
+				A24E09B21774714100DC79DE /* hpple */,
+				A24E09B11774634700DC79DE /* GUI */,
+				A24E09AD17745A5B00DC79DE /* Model */,
 				A24E096D177451EF00DC79DE /* Supporting Files */,
 			);
 			path = ErzbierschofsTaps;
@@ -168,6 +205,56 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		A24E09AD17745A5B00DC79DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A24E09AA1774579700DC79DE /* Bar.h */,
+				A24E09AB1774579700DC79DE /* Bar.m */,
+				A24E09AE17745EAA00DC79DE /* TapInfo.h */,
+				A24E09AF17745EAA00DC79DE /* TapInfo.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A24E09B11774634700DC79DE /* GUI */ = {
+			isa = PBXGroup;
+			children = (
+				A24E0975177451EF00DC79DE /* AppDelegate.h */,
+				A24E0976177451EF00DC79DE /* AppDelegate.m */,
+				A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */,
+				A24E0981177451EF00DC79DE /* MainStoryboard_iPad.storyboard */,
+				A24E0984177451EF00DC79DE /* MasterViewController.h */,
+				A24E0985177451EF00DC79DE /* MasterViewController.m */,
+				A24E0987177451EF00DC79DE /* DetailViewController.h */,
+				A24E0988177451EF00DC79DE /* DetailViewController.m */,
+				A2AF3104177884F1008F106F /* TapTableCell.xib */,
+				A2AF31061778862B008F106F /* TapTableCell.h */,
+				A2AF31071778862B008F106F /* TapTableCell.m */,
+			);
+			name = GUI;
+			sourceTree = "<group>";
+		};
+		A24E09B21774714100DC79DE /* hpple */ = {
+			isa = PBXGroup;
+			children = (
+				A24E09B31774718600DC79DE /* TFHpple.h */,
+				A24E09B41774718600DC79DE /* TFHpple.m */,
+				A24E09B51774718600DC79DE /* TFHppleElement.h */,
+				A24E09B61774718600DC79DE /* TFHppleElement.m */,
+				A24E09B71774718600DC79DE /* XPathQuery.h */,
+				A24E09B81774718600DC79DE /* XPathQuery.m */,
+			);
+			name = hpple;
+			sourceTree = "<group>";
+		};
+		A2852C8417799CD700001FFA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A2852C8817799CD700001FFA /* libMBProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -182,6 +269,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				A2852C8B17799D2000001FFA /* PBXTargetDependency */,
 			);
 			name = ErzbierschofsTaps;
 			productName = ErzbierschofsTaps;
@@ -226,6 +314,12 @@
 			mainGroup = A24E095A177451EF00DC79DE;
 			productRefGroup = A24E0964177451EF00DC79DE /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A2852C8417799CD700001FFA /* Products */;
+					ProjectRef = A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A24E0962177451EF00DC79DE /* ErzbierschofsTaps */,
@@ -233,6 +327,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A2852C8817799CD700001FFA /* libMBProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMBProgressHUD.a;
+			remoteRef = A2852C8717799CD700001FFA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A24E0961177451EF00DC79DE /* Resources */ = {
@@ -245,6 +349,7 @@
 				A24E097D177451EF00DC79DE /* Default-568h@2x.png in Resources */,
 				A24E0980177451EF00DC79DE /* MainStoryboard_iPhone.storyboard in Resources */,
 				A24E0983177451EF00DC79DE /* MainStoryboard_iPad.storyboard in Resources */,
+				A2AF3105177884F1008F106F /* TapTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +388,12 @@
 				A24E0977177451EF00DC79DE /* AppDelegate.m in Sources */,
 				A24E0986177451EF00DC79DE /* MasterViewController.m in Sources */,
 				A24E0989177451EF00DC79DE /* DetailViewController.m in Sources */,
+				A24E09AC1774579700DC79DE /* Bar.m in Sources */,
+				A24E09B017745EAA00DC79DE /* TapInfo.m in Sources */,
+				A24E09B91774718600DC79DE /* TFHpple.m in Sources */,
+				A24E09BA1774718600DC79DE /* TFHppleElement.m in Sources */,
+				A24E09BB1774718600DC79DE /* XPathQuery.m in Sources */,
+				A2AF31081778862B008F106F /* TapTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +412,11 @@
 			isa = PBXTargetDependency;
 			target = A24E0962177451EF00DC79DE /* ErzbierschofsTaps */;
 			targetProxy = A24E0994177451EF00DC79DE /* PBXContainerItemProxy */;
+		};
+		A2852C8B17799D2000001FFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			targetProxy = A2852C8A17799D2000001FFA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -403,6 +519,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "ErzbierschofsTaps/ErzbierschofsTaps-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -414,6 +531,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "ErzbierschofsTaps/ErzbierschofsTaps-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -473,6 +591,7 @@
 				A24E09A3177451F000DC79DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A24E09A4177451F000DC79DE /* Build configuration list for PBXNativeTarget "ErzbierschofsTapsTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +600,7 @@
 				A24E09A6177451F000DC79DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

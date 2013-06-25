@@ -7,9 +7,16 @@
 //
 
 #import "DetailViewController.h"
+#import "TFHpple.h"
+#import "TapInfo.h"
+#import "TapTableCell.h"
+#import "Bar.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
-@interface DetailViewController ()
+@interface DetailViewController () {}
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong) Bar *bar;
+@property (nonatomic) NSArray *taps;
 - (void)configureView;
 @end
 
@@ -34,17 +41,36 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        self.bar = self.detailItem;
     }
+    
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+//    BOOL success = false;
     [self configureView];
+    self.title = [NSString stringWithFormat:@"On tap in %@", self.bar.name];
+    //Load tap info
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        BOOL success =  [self loadBeers];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (!success) {
+                UIAlertView *alert = [[UIAlertView alloc]
+                initWithTitle:@"Error"
+                message:@"Could not update the tap list. Check that you have a connection."
+                delegate:nil
+                cancelButtonTitle:@"Ok"
+                otherButtonTitles:nil];
+                [alert show];
+            }
+        });
+    });
 }
 
 - (void)didReceiveMemoryWarning
@@ -52,6 +78,101 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(BOOL) loadBeers {
+    BOOL success = false;
+    NSURL *beersUrl = [NSURL URLWithString:self.bar.url];
+    NSMutableArray *newTaps = [[NSMutableArray alloc] initWithCapacity:0];
+    NSData *beersHtmlData = [NSData dataWithContentsOfURL:beersUrl];
+    TFHpple *beersParser = [TFHpple hppleWithHTMLData:beersHtmlData];
+    NSString *xQueryString = @"//table[@class='tabtable-gr_alterora_elemental_1_grey_2s2']/tbody/tr";
+    NSArray *beerNodes = [beersParser searchWithXPathQuery:xQueryString];        
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    if ([beerNodes count] > 0) {
+        for (int i = 1; i < [beerNodes count]; i++){
+            TFHppleElement *element = beerNodes[i];
+            TapInfo *tap = [[TapInfo alloc] init];
+            [newTaps addObject:tap];
+            tap.brewery = [[element.children[2]  firstChild] content];
+            tap.name = [[element.children[6]  firstChild] content];
+            tap.abv = [[element.children[8]  firstChild] content];
+            tap.style = [[element.children[10]  firstChild] content];
+            tap.quantity = [[element.children[12]  firstChild] content];
+            NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
+            [prefs setObject:tap.brewery forKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
+            [prefs setObject:tap.name forKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
+            [prefs setObject:tap.abv forKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
+            [prefs setObject:tap.style forKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
+            [prefs setObject:tap.quantity forKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
+        }
+        success = true;
+    } else {
+        for (int i = 1; i <= 15; i++){
+            TapInfo *tap = [[TapInfo alloc] init];
+            [newTaps addObject:tap];
+            NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
+            if ([prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]] != nil) {
+                NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+                tap.name = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
+                tap.brewery = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
+                tap.abv  = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
+                tap.style = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
+                tap.quantity = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
+            }
+        }
+    }
+    self.taps = newTaps;
+    [self.tableView reloadData];
+    return success;
+}
+
+#pragma mark - Table View
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_taps count];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"TapTableCell";
+    
+    TapTableCell *cell = (TapTableCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"TapTableCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    
+    TapInfo *thisBeer = [self.taps objectAtIndex:indexPath.row];
+    if (thisBeer.name != nil) {
+        cell.nameLabel.text = [NSString stringWithFormat:@"%@ by %@", thisBeer.name, thisBeer.brewery];
+        cell.detailsLabel.text = [NSString stringWithFormat:@"%@, %@", thisBeer.style, thisBeer.abv];
+        cell.tapNumLabel.text = [NSString stringWithFormat:@"%ld", (long) indexPath.row + 1];
+        cell.amountLabel.text = thisBeer.quantity;
+    }
+    return cell;
+}
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return NO;
+}
+
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [_taps removeObjectAtIndex:indexPath.row];
+//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+//    }
+//}
 
 #pragma mark - Split view
 
