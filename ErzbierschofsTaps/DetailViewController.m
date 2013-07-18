@@ -22,6 +22,8 @@
 
 @implementation DetailViewController
 
+@synthesize refreshButton;
+
 #pragma mark - Managing the detail item
 
 - (void)setDetailItem:(id)newDetailItem
@@ -44,16 +46,27 @@
     if (self.detailItem) {
         self.bar = self.detailItem;
     }
-    
+}
+
+- (IBAction)refreshPressed:(id)sender{
+    [self viewDidLoad];
+}
+
+- (void)becomeActive:(NSNotification *)note 
+{
+    [self viewDidLoad];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(becomeActive:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
 	// Do any additional setup after loading the view, typically from a nib.
-//    BOOL success = false;
     [self configureView];
-    self.title = [NSString stringWithFormat:@"On tap in %@", self.bar.name];
+    self.title = self.bar.name; //[NSString stringWithFormat:@"On tap in %@", self.bar.name];
     //Load tap info
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
@@ -157,22 +170,11 @@
     return cell;
 }
 
-
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [_taps removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//    }
-//}
 
 #pragma mark - Split view
 

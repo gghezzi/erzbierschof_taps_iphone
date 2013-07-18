@@ -14,20 +14,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    Bar *bar1 = [[Bar alloc] initWithName:@"Liebefeld" url:@"http://bar.erzbierschof.ch/on-tap"];
-    Bar *bar2 = [[Bar alloc] initWithName:@"Winterthur" url:@"http://punkt.erzbierschof.ch/on-tap"];
+    Bar *bar1 = [[Bar alloc] initWithName:@"Liebefeld" url:@"http://bar.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_liebefeld.png"]];
+    Bar *bar2 = [[Bar alloc] initWithName:@"Winterthur" url:@"http://punkt.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_winti.png"]];
     NSMutableArray *bars = [NSMutableArray arrayWithObjects:bar1, bar2, nil];
     
     UINavigationController * navController = (UINavigationController *) self.window.rootViewController;
     MasterViewController * masterController = [navController.viewControllers objectAtIndex:0];
     masterController.bars = bars;
 
-//    // Override point for customization after application launch.
-//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-//        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-//        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-//        splitViewController.delegate = (id)navigationController.topViewController;
-//    }
     return YES;
 }
 							

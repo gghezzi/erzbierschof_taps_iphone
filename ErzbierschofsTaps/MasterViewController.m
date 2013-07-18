@@ -38,8 +38,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,8 +63,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Bar_Cell" forIndexPath:indexPath];
 
     Bar *bar = [self.bars objectAtIndex:indexPath.row];
-    cell.textLabel.text = bar.name;
-//    cell.imageView.image = bug.thumbImage;
+//    cell.textLabel.text = bar.name;
+    cell.imageView.image = bar.image;
     return cell;
 }
 
@@ -80,16 +78,6 @@
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
-//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [_objects removeObjectAtIndex:indexPath.row];
-//        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-//    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-//        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
-//    }
-//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

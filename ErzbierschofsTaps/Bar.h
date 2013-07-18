@@ -11,5 +11,6 @@
 @interface Bar : NSObject
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *url;
--(id)initWithName:(NSString *)name url:(NSString *)url;
+@property (nonatomic) UIImage *image;
+-(id)initWithName:(NSString *)name url:(NSString *)url image:(UIImage *)image;
 @end

@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailViewController : UITableViewController
-
+@interface DetailViewController : UITableViewController{
+    IBOutlet UIButton *refreshButton;
+}
+@property (nonatomic, retain) UIButton *refreshButton;
 @property (strong, nonatomic) id detailItem;
-//@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+
+-(IBAction)refreshPressed:(id)sender;
 @end

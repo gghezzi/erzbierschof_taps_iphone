@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A240CE5417980D9500473C94 /* todos.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A240CE5317980D9500473C94 /* todos.rtf */; };
 		A24E0967177451EF00DC79DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0966177451EF00DC79DE /* UIKit.framework */; };
 		A24E0969177451EF00DC79DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0968177451EF00DC79DE /* Foundation.framework */; };
 		A24E096B177451EF00DC79DE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E096A177451EF00DC79DE /* CoreGraphics.framework */; };
@@ -34,6 +35,8 @@
 		A2852C8917799D0E00001FFA /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A2852C8817799CD700001FFA /* libMBProgressHUD.a */; };
 		A2852C911779CCD600001FFA /* erz_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2852C901779CCD600001FFA /* erz_icon.png */; };
 		A2852C951779CD3700001FFA /* erz_icon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A2852C941779CD3700001FFA /* erz_icon_retina.png */; };
+		A2979BE5179842C0005A6CAF /* erz_liebefeld.png in Resources */ = {isa = PBXBuildFile; fileRef = A2979BE3179842C0005A6CAF /* erz_liebefeld.png */; };
+		A2979BE6179842C0005A6CAF /* erz_winti.png in Resources */ = {isa = PBXBuildFile; fileRef = A2979BE4179842C0005A6CAF /* erz_winti.png */; };
 		A2AF3105177884F1008F106F /* TapTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2AF3104177884F1008F106F /* TapTableCell.xib */; };
 		A2AF31081778862B008F106F /* TapTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AF31071778862B008F106F /* TapTableCell.m */; };
 /* End PBXBuildFile section */
@@ -63,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A240CE5317980D9500473C94 /* todos.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = todos.rtf; sourceTree = "<group>"; };
 		A24E0963177451EF00DC79DE /* ErzbierschofsTaps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ErzbierschofsTaps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24E0966177451EF00DC79DE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A24E0968177451EF00DC79DE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +106,8 @@
 		A2852C8317799CD700001FFA /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = "../../../../Downloads/MBProgressHUD-master/MBProgressHUD.xcodeproj"; sourceTree = "<group>"; };
 		A2852C901779CCD600001FFA /* erz_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = erz_icon.png; path = ../erz_icon.png; sourceTree = "<group>"; };
 		A2852C941779CD3700001FFA /* erz_icon_retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = erz_icon_retina.png; path = ../erz_icon_retina.png; sourceTree = "<group>"; };
+		A2979BE3179842C0005A6CAF /* erz_liebefeld.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erz_liebefeld.png; sourceTree = "<group>"; };
+		A2979BE4179842C0005A6CAF /* erz_winti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erz_winti.png; sourceTree = "<group>"; };
 		A2AF3104177884F1008F106F /* TapTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TapTableCell.xib; sourceTree = "<group>"; };
 		A2AF31061778862B008F106F /* TapTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapTableCell.h; sourceTree = "<group>"; };
 		A2AF31071778862B008F106F /* TapTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapTableCell.m; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 				A24E09B11774634700DC79DE /* GUI */,
 				A24E09AD17745A5B00DC79DE /* Model */,
 				A24E096D177451EF00DC79DE /* Supporting Files */,
+				A240CE5317980D9500473C94 /* todos.rtf */,
 			);
 			path = ErzbierschofsTaps;
 			sourceTree = "<group>";
@@ -179,6 +186,8 @@
 		A24E096D177451EF00DC79DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A2979BE3179842C0005A6CAF /* erz_liebefeld.png */,
+				A2979BE4179842C0005A6CAF /* erz_winti.png */,
 				A2852C941779CD3700001FFA /* erz_icon_retina.png */,
 				A2852C901779CCD600001FFA /* erz_icon.png */,
 				A24E096E177451EF00DC79DE /* ErzbierschofsTaps-Info.plist */,
@@ -358,6 +367,9 @@
 				A2AF3105177884F1008F106F /* TapTableCell.xib in Resources */,
 				A2852C911779CCD600001FFA /* erz_icon.png in Resources */,
 				A2852C951779CD3700001FFA /* erz_icon_retina.png in Resources */,
+				A240CE5417980D9500473C94 /* todos.rtf in Resources */,
+				A2979BE5179842C0005A6CAF /* erz_liebefeld.png in Resources */,
+				A2979BE6179842C0005A6CAF /* erz_winti.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
