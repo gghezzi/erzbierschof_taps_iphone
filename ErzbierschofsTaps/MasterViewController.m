@@ -10,9 +10,7 @@
 #import "Bar.h"
 #import "DetailViewController.h"
 
-@interface MasterViewController () {
-//    NSMutableArray *_objects;
-}
+@interface MasterViewController ()
 @end
 
 @implementation MasterViewController
@@ -46,8 +44,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table View
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -60,8 +56,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //Populating the tableView with the existing Erzbierschof bars
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Bar_Cell" forIndexPath:indexPath];
-
     Bar *bar = [self.bars objectAtIndex:indexPath.row];
 //    cell.textLabel.text = bar.name;
     cell.imageView.image = bar.image;

@@ -8,6 +8,7 @@
 
 #import "TapTableCell.h"
 
+// The customized table cell used by the DetailView controller to visualize the info about a single tap
 @implementation TapTableCell
 @synthesize nameLabel = _nameLabel;
 @synthesize detailsLabel = _detailsLabel;
@@ -26,8 +27,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

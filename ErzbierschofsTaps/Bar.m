@@ -8,6 +8,7 @@
 
 #import "Bar.h"
 
+// Class used to keep information about an Erbierschof bar
 @implementation Bar
 @synthesize name = _name;
 @synthesize url = _url;

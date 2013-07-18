@@ -24,8 +24,6 @@
 
 @synthesize refreshButton;
 
-#pragma mark - Managing the detail item
-
 - (void)setDetailItem:(id)newDetailItem
 {
     if (_detailItem != newDetailItem) {
@@ -48,6 +46,7 @@
     }
 }
 
+//Refreshes the list of beers on tap
 - (IBAction)refreshPressed:(id)sender{
     [self viewDidLoad];
 }
@@ -57,17 +56,20 @@
     [self viewDidLoad];
 }
 
+// Called when the view successfully loaded, it takes care of populating
+// the tableView with the beers currently on tap at the selected Erzbierschof location.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Register for an enterForeground notification
+    // Necessary for the view to be notified when it comes back to the foreground (e.g. when I reopen the application)
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(becomeActive:)
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
-	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-    self.title = self.bar.name; //[NSString stringWithFormat:@"On tap in %@", self.bar.name];
-    //Load tap info
+    self.title = self.bar.name;
+    //Load tap info from Erzbierschof
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         BOOL success =  [self loadBeers];
@@ -92,12 +94,15 @@
     // Dispose of any resources that can be recreated.
 }
 
+// Loads the tap info from the Erzbierschof website
 -(BOOL) loadBeers {
     BOOL success = false;
     NSURL *beersUrl = [NSURL URLWithString:self.bar.url];
     NSMutableArray *newTaps = [[NSMutableArray alloc] initWithCapacity:0];
     NSData *beersHtmlData = [NSData dataWithContentsOfURL:beersUrl];
+    // Setting up an HTML parser to get the tap info from the HTML page
     TFHpple *beersParser = [TFHpple hppleWithHTMLData:beersHtmlData];
+    // The XQuery used to get to the 'currently on tap' HTML table
     NSString *xQueryString = @"//table[@class='tabtable-gr_alterora_elemental_1_grey_2s2']/tbody/tr";
     NSArray *beerNodes = [beersParser searchWithXPathQuery:xQueryString];        
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
@@ -111,6 +116,7 @@
             tap.abv = [[element.children[8]  firstChild] content];
             tap.style = [[element.children[10]  firstChild] content];
             tap.quantity = [[element.children[12]  firstChild] content];
+            // Saving the information for future use (e.g. If I can't load new info)
             NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
             [prefs setObject:tap.brewery forKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
             [prefs setObject:tap.name forKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
@@ -118,8 +124,12 @@
             [prefs setObject:tap.style forKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
             [prefs setObject:tap.quantity forKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
         }
+        // If I get to this point I loaded the tap info from the website
+        // This is necessary so that methods calling this one know when they need to warn that the info
+        // has not been loaded.
         success = true;
     } else {
+        // In case I could not fetch the info from the webpage, I load the cached data (if there's any)
         for (int i = 1; i <= 15; i++){
             TapInfo *tap = [[TapInfo alloc] init];
             [newTaps addObject:tap];
@@ -139,8 +149,6 @@
     return success;
 }
 
-#pragma mark - Table View
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -151,6 +159,7 @@
     return [_taps count];
 }
 
+// Updates the tableView with the tap info fetched
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"TapTableCell";
     
@@ -175,8 +184,6 @@
     // Return NO if you do not want the specified item to be editable.
     return NO;
 }
-
-#pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {

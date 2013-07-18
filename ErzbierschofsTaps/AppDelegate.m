@@ -14,6 +14,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    //Loading the info about the different Erzbierschof locations
     Bar *bar1 = [[Bar alloc] initWithName:@"Liebefeld" url:@"http://bar.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_liebefeld.png"]];
     Bar *bar2 = [[Bar alloc] initWithName:@"Winterthur" url:@"http://punkt.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_winti.png"]];
     NSMutableArray *bars = [NSMutableArray arrayWithObjects:bar1, bar2, nil];

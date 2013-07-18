@@ -8,6 +8,7 @@
 
 #import "TapInfo.h"
 
+// Class used to represent a single beer tap
 @implementation TapInfo
 
 @synthesize name;
