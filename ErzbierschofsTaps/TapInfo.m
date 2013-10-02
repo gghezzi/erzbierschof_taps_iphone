@@ -16,6 +16,7 @@
 @synthesize brewery;
 @synthesize style;
 @synthesize country;
+@synthesize tapNum;
 
 
 @end

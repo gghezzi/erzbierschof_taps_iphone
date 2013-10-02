@@ -7,6 +7,7 @@
 //
 
 #import "TapTableCell.h"
+#import "BeerDetailsViewController.h"
 
 // The customized table cell used by the DetailView controller to visualize the info about a single tap
 @implementation TapTableCell

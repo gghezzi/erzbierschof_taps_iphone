@@ -7,18 +7,13 @@
 //
 
 #import "DetailViewController.h"
+#import "BeerDetailsViewController.h"
 #import "TFHpple.h"
 #import "TapInfo.h"
 #import "TapTableCell.h"
 #import "Bar.h"
-#import <MBProgressHUD/MBProgressHUD.h>
-
-@interface DetailViewController () {}
-@property (strong, nonatomic) UIPopoverController *masterPopoverController;
-@property (strong) Bar *bar;
-@property (nonatomic) NSArray *taps;
-- (void)configureView;
-@end
+#import "Reachability.h"
+#import "MBProgressHUD.h"
 
 @implementation DetailViewController
 
@@ -51,10 +46,16 @@
     [self viewDidLoad];
 }
 
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+}
+
 - (void)becomeActive:(NSNotification *)note 
 {
     [self viewDidLoad];
 }
+
 
 // Called when the view successfully loaded, it takes care of populating
 // the tableView with the beers currently on tap at the selected Erzbierschof location.
@@ -68,24 +69,51 @@
                                                  name:UIApplicationWillEnterForegroundNotification
                                                object:nil];
     [self configureView];
-    self.title = self.bar.name;
-    //Load tap info from Erzbierschof
-    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        BOOL success =  [self loadBeers];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-            if (!success) {
-                UIAlertView *alert = [[UIAlertView alloc]
-                initWithTitle:@"Error"
-                message:@"Could not update the tap list. Check that you have a connection."
-                delegate:nil
-                cancelButtonTitle:@"Ok"
-                otherButtonTitles:nil];
-                [alert show];
+    // Before even trying to fetch data from Erzbierschof I check that there's an active internet connection
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        if ([self loadCachedTaps]) {
+            [self error:@"The application needs an internet connection to get an updated tap list.\nAn older version has been loaded instead"];
+        } else {
+            [self error:@"The application needs an internet connection to get an updated tap list."];
+        }
+    } else {
+        //Load tap info from Erzbierschof
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+            @try{
+                BOOL success =  [self loadBeers];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    if (!success) {
+                        if ([self loadCachedTaps]) {
+                            [self error:@"Could not update the tap list.\nAn older version has been loaded instead"];
+                        } else {
+                            [self error:@"Could not update the tap list and could not find any previously saved one."];
+                        }
+                    }
+                });
             }
+            @catch(NSException *e) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [MBProgressHUD hideHUDForView:self.view animated:YES];
+                    [self error:@"Could not correctly get the tap list from the website, which seems to have changed. Please contact the app creator or Erbierschof"];
+                });
+            }
+        
         });
-    });
+    }
+}
+
+- (void)error:(NSString*) msg{
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Error"
+                          message:msg
+                          delegate:nil
+                          cancelButtonTitle:@"Ok"
+                          otherButtonTitles:nil];
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,11 +139,32 @@
             TFHppleElement *element = beerNodes[i];
             TapInfo *tap = [[TapInfo alloc] init];
             [newTaps addObject:tap];
-            tap.brewery = [[element.children[2]  firstChild] content];
-            tap.name = [[element.children[6]  firstChild] content];
-            tap.abv = [[element.children[8]  firstChild] content];
-            tap.style = [[element.children[10]  firstChild] content];
-            tap.quantity = [[element.children[12]  firstChild] content];
+            if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) {
+                // less than iOS 7
+                tap.brewery = [self getContent:element.children[2]];
+                if (tap.brewery == NULL) {
+                    NSException *e = [NSException
+                                      exceptionWithName:@"NSInternalInconsistencyException"
+                                      reason:@"File Not Found on System"
+                                      userInfo:nil];
+                    @throw e;
+                }
+                tap.name = [self getContent:element.children[6]];
+                tap.style = [self getContent:element.children[8]];
+                tap.abv = [self getContent:element.children[10]];
+                tap.quantity = [self getContent:element.children[12]];
+            } else {
+                // iOS 7 or more
+                tap.brewery = [self getContent:element.children[3]];
+                if (tap.brewery == NULL) {
+                    success = false;
+                }
+                tap.name = [self getContent:element.children[7]];
+                tap.style = [self getContent:element.children[9]];
+                tap.abv = [self getContent:element.children[11]];
+                tap.quantity = [self getContent:element.children[13]];
+            }
+            tap.tapNum = [NSString stringWithFormat:@"%i", i];
             // Saving the information for future use (e.g. If I can't load new info)
             NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
             [prefs setObject:tap.brewery forKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
@@ -123,30 +172,52 @@
             [prefs setObject:tap.abv forKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
             [prefs setObject:tap.style forKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
             [prefs setObject:tap.quantity forKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
+            [prefs setObject:tap.tapNum forKey:[NSString stringWithFormat:@"%@%@", prefix, @"tapNum"]];
         }
-        // If I get to this point I loaded the tap info from the website
-        // This is necessary so that methods calling this one know when they need to warn that the info
-        // has not been loaded.
         success = true;
-    } else {
-        // In case I could not fetch the info from the webpage, I load the cached data (if there's any)
-        for (int i = 1; i <= 15; i++){
-            TapInfo *tap = [[TapInfo alloc] init];
-            [newTaps addObject:tap];
-            NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
-            if ([prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]] != nil) {
-                NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-                tap.name = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
-                tap.brewery = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
-                tap.abv  = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
-                tap.style = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
-                tap.quantity = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
-            }
-        }
     }
     self.taps = newTaps;
     [self.tableView reloadData];
     return success;
+}
+
+- (BOOL) loadCachedTaps {
+    BOOL success = false;
+    NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSMutableArray *newTaps = [[NSMutableArray alloc] initWithCapacity:0];
+    // In case I could not fetch the info from the webpage, I load the cached data (if there's any)
+    for (int i = 1; i <= 15; i++){
+        TapInfo *tap = [[TapInfo alloc] init];
+        [newTaps addObject:tap];
+        NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
+        if ([prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]] != nil) {
+            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+            tap.name = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
+            tap.brewery = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
+            tap.abv  = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
+            tap.style = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
+            tap.quantity = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
+            tap.tapNum = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"tapNum"]];
+        }
+    }
+    if ([newTaps count] > 0) {
+        success = true;
+        self.taps = newTaps;
+        [self.tableView reloadData];
+    }
+    return success;
+}
+
+- (NSString*) getContent:(TFHppleElement*) element{
+    NSString *res = [[element firstChild] content];
+    if (res == NULL) {
+        if ([element.children count] > 0) {
+            return [self getContent:element.children[0]];
+        } else {
+            return NULL;
+        }
+    }
+    return res;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -161,7 +232,7 @@
 
 // Updates the tableView with the tap info fetched
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"TapTableCell";
+    static NSString *cellIdentifier = @"TapTableCell";//I'm here!
     
     TapTableCell *cell = (TapTableCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
@@ -197,6 +268,23 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Find the selected cell in the usual way
+    TapTableCell *cell = (TapTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    [self performSegueWithIdentifier:@"beerDetails" sender:cell];
+    // Check if this is the cell I want to segue from by using the reuseIdenifier
+    // which I set in the "Identifier" field in Interface Builder
+    
+    }
+    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    BeerDetailsViewController *beerDetailController = segue.destinationViewController;
+    TapInfo *beerInfo = [self.taps objectAtIndex:self.tableView.indexPathForSelectedRow.row];
+    beerDetailController.beerDetailItem = beerInfo;
 }
 
 @end

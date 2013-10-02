@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Bar.h"
 
 @interface DetailViewController : UITableViewController{
     IBOutlet UIButton *refreshButton;
 }
 @property (nonatomic, retain) UIButton *refreshButton;
 @property (strong, nonatomic) id detailItem;
-
--(IBAction)refreshPressed:(id)sender;
+@property (strong, nonatomic) UIPopoverController *masterPopoverController;
+@property (strong) Bar *bar;
+@property (nonatomic) NSArray *taps;
+- (void)configureView;
+- (IBAction)refreshPressed:(id)sender;
 @end

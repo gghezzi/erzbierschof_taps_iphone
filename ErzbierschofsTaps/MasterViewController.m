@@ -10,9 +10,6 @@
 #import "Bar.h"
 #import "DetailViewController.h"
 
-@interface MasterViewController ()
-@end
-
 @implementation MasterViewController
 
 @synthesize bars;
@@ -61,6 +58,7 @@
     Bar *bar = [self.bars objectAtIndex:indexPath.row];
 //    cell.textLabel.text = bar.name;
     cell.imageView.image = bar.image;
+    cell.imageView.center = cell.center;
     return cell;
 }
 
@@ -77,7 +75,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    DetailViewController *detailController =segue.destinationViewController;
+    DetailViewController *detailController = segue.destinationViewController;
     Bar *bar = [self.bars objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     detailController.detailItem = bar;
 }

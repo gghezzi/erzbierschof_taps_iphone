@@ -16,5 +16,6 @@
 @property (nonatomic, copy) NSString *style;
 @property (nonatomic, copy) NSString *abv;
 @property (nonatomic, copy) NSString *country;
+@property (nonatomic, copy) NSString *tapNum;
 
 @end
