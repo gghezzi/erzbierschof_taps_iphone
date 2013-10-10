@@ -7,17 +7,16 @@
 //
 
 #import "RatingBrowseViewController.h"
-
+#import "MBProgressHUD.h"
 
 @implementation RatingBrowseViewController
 
 @synthesize ratingUrl;
 
-- (void)setDetailItem:(id)newDetailItem
+- (void)setDetailItems:(id)newDetailItem
 {
-    if (self.ratingDetailItem != newDetailItem) {
-        self.ratingDetailItem = newDetailItem;
-        
+    if (self.ratingUrlItem != newDetailItem) {
+        self.ratingUrlItem = newDetailItem;
         // Update the view.
         [self configureView];
     }
@@ -25,7 +24,7 @@
 
 - (void)configureView
 {
-    self.ratingUrl = self.ratingDetailItem;
+    self.ratingUrl = self.ratingUrlItem;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -51,8 +50,16 @@
 {
     [super viewDidLoad];
     [self configureView];
+
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading the rating page";
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:self.ratingUrl];
     [_webView loadRequest:requestObj];
+    BOOL loading = _webView.loading;
+    while(loading) {
+        loading = _webView.loading;
+    }
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

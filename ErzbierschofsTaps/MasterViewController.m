@@ -14,14 +14,14 @@
 
 @synthesize bars;
 
-- (void)awakeFromNib
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.clearsSelectionOnViewWillAppear = NO;
-        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
-    }
-    [super awakeFromNib];
-}
+//- (void)awakeFromNib
+//{
+//    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+//        self.clearsSelectionOnViewWillAppear = NO;
+//        self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+//    }
+//    [super awakeFromNib];
+//}
 
 - (void)viewDidLoad
 {

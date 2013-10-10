@@ -12,6 +12,5 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
 
 @property (strong) NSURL *ratingUrl;
-@property (strong, nonatomic) id ratingDetailItem;
-
+@property (strong, nonatomic) id ratingUrlItem;
 @end

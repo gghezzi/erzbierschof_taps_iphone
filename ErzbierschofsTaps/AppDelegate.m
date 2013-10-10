@@ -7,24 +7,27 @@
 //
 
 #import "AppDelegate.h"
-#import "MasterViewController.h"
 #import "Bar.h"
-//#import "UIApplication+SimulatorRemoteNotifications.h"
+#import "LocationsViewController.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Loading the info about the different Erzbierschof locations
-    Bar *bar1 = [[Bar alloc] initWithName:@"Liebefeld" url:@"http://bar.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_liebefeld.png"]];
-    Bar *bar2 = [[Bar alloc] initWithName:@"Winterthur" url:@"http://punkt.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_winti.png"]];
-    NSMutableArray *bars = [NSMutableArray arrayWithObjects:bar1, bar2, nil];
+    Bar *bar1 = [[Bar alloc] initWithName:@"Erzbierschof" url:@"http://bar.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_liebefeld.png"] phone:[NSURL URLWithString:@"telprompt://+410319717275"] latitude:46.928198 longitude:7.416452 address:@"Könizstrasse 276" city:@"Liebefeld"];
+    Bar *bar2 = [[Bar alloc] initWithName:@"Erzbierschof Punkt" url:@"http://punkt.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_winti.png"] phone:[NSURL URLWithString:@"telprompt://+41522125252"] latitude:47.500489 longitude:8.730094 address:@"Stadthausstrasse 53" city:@"Winterthur" ];
+//    NSMutableArray *bars = [NSMutableArray arrayWithObjects:bar1, bar2, nil];
     
     UINavigationController * navController = (UINavigationController *) self.window.rootViewController;
-    MasterViewController * masterController = [navController.viewControllers objectAtIndex:0];
-    masterController.bars = bars;
-
-//    [application listenForRemoteNotifications];
+    LocationsViewController * locationsController = [navController.viewControllers objectAtIndex:0];
+    locationsController.liebefeldBar = bar1;
+    locationsController.winterthurBar = bar2;
+    
+//    UINavigationController * navController = (UINavigationController *) self.window.rootViewController;
+//    MasterViewController * masterController = [navController.viewControllers objectAtIndex:0];
+//    masterController.bars = bars;
+    
     return YES;
 }
 

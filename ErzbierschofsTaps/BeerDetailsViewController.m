@@ -169,12 +169,13 @@
 }
 
 - (NSDictionary*) getUntappdJson:(NSString*)subUrl additionalParams:(NSString *)additionalParams{
-    NSString *clientId = @"0BAF01091B6ED6AE85A785CDC1E56989E0CE7D6E";
-    NSString *clientSecret = @"B795AF721053EB3EBC7E1035A0B8BC7C46DD3CCE";
+    NSString *clientId = @"5F1CDF4BD4B28B28432318D38F1874644E083173";
+    NSString *clientSecret = @"C1CBCF1927CB9743781C7C2960E29B0C0D48BF93";
     NSString *apiAddress = @"http://api.untappd.com/v4";
     
     NSString *url = [NSString stringWithFormat: @"%@%@?client_id=%@&client_secret=%@&%@", apiAddress, subUrl, clientId, clientSecret, additionalParams];
     NSMutableURLRequest *detailsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
+    [detailsRequest setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
     [detailsRequest setHTTPMethod:@"GET"];
     NSURLResponse* detailsRequestResponse;
     NSError* detailsRequestError = nil;
@@ -200,10 +201,14 @@
 // Tries to load the Untappd info for the beer
 -(BOOL) loadUntappdInfo {
     BOOL success = false;
-    NSDictionary* json = [self getUntappdJson:@"/search/beer" additionalParams: [NSString stringWithFormat: @"&q=%@ %@", self.beerInfo.name, self.beerInfo.brewery]];
+    NSDictionary* json = [self getUntappdJson:@"/search/beer" additionalParams: [NSString stringWithFormat: @"q=%@ %@", self.beerInfo.name, self.beerInfo.brewery]];
     if (json != NULL) {
         // the Json parsing was successful, proceeding to see if beers were found
         NSArray* beerIds = [[[[[json objectForKey:@"response"]objectForKey:@"beers"]objectForKey:@"items"]valueForKey:@"beer"]valueForKey:@"bid"];
+        // In case the beer was mislabeled as homebrew, I get it anyway
+        if (beerIds.count <=0) {
+            beerIds = [[[[[json objectForKey:@"response"]objectForKey:@"homebrew"]objectForKey:@"items"]valueForKey:@"beer"]valueForKey:@"bid"];
+        }
         // could add iterations to find beer when it has incorrect blank spaces
         if (beerIds.count > 0) {
             // Some beers found, proceeding to get the beer id of the most likely one
@@ -229,6 +234,7 @@
     NSString *postString = [NSString stringWithFormat: @"BeerName=%@+%@&BeerStyles=0&CountryID=+&StateID=+&SortBy=1&submit1=Search", [self.beerInfo.name stringByReplacingOccurrencesOfString:@" " withString:@"+"], [self.beerInfo.brewery stringByReplacingOccurrencesOfString:@" " withString:@"+"]];
     NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
     [beersListRequest setHTTPBody:data];
+    [beersListRequest setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
     [beersListRequest setValue:[NSString stringWithFormat:@"%u", [data length]] forHTTPHeaderField:@"Content-Length"];
     NSURLResponse* requestResponse;
     NSError* requestError = nil;
@@ -253,25 +259,30 @@
             NSMutableURLRequest *detailsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
             [detailsRequest setHTTPMethod:@"GET"];
             NSURLResponse* detailsRequestResponse;
+            [detailsRequest setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
             NSError* detailsRequestError = nil;
             NSData* detailsRequestResult = [NSURLConnection sendSynchronousRequest:detailsRequest  returningResponse:&detailsRequestResponse error:&detailsRequestError];
             if (detailsRequestError != nil) {
                 NSLog(@"Failed to get detailed info for beer %@ by %@ on Ratebeer", self.beerInfo.name, self.beerInfo.brewery);
             } else {
                 TFHpple *detailsParser = [TFHpple hppleWithHTMLData:detailsRequestResult];
-                NSString *xQueryString = @"//title";
+                 NSString *xQueryString = @"//div[span[contains(.,'overall')]]";
+//                NSString *xQueryString = @"//title";
                 NSArray *detailsNodes = [detailsParser searchWithXPathQuery:xQueryString];
                 if ([detailsNodes count] > 0) {
-                    NSRange startingRange = [[[detailsNodes[0] firstChild] content] rangeOfString:@"-" options:NSBackwardsSearch];
-                    if (startingRange.length > 0) {
-                        NSString *rating = [[[detailsNodes[0] firstChild] content] substringWithRange:NSMakeRange(startingRange.location + 2, 3)];
-                        rating = [rating stringByReplacingOccurrencesOfString:@" " withString:@""];
-                        success = true;
-                        self.ratebeerRating = rating;
-                        self.ratebeerUrl = [NSURL URLWithString:url];
-                    } else {
-                        NSLog(@"Beer %@ by %@ on Ratebeer exists but no correct rating could be found", self.beerInfo.name, self.beerInfo.brewery);
-                    }
+                    self.ratebeerRating = [NSString stringWithFormat: @"%@", [[detailsNodes[0] children][2] content]];
+                    self.ratebeerUrl = [NSURL URLWithString:url];
+                    success = true;
+//                    NSRange startingRange = [[[detailsNodes[0] firstChild] content] rangeOfString:@"-" options:NSBackwardsSearch];
+//                    if (startingRange.length > 0) {
+//                        NSString *rating = [[[detailsNodes[0] firstChild] content] substringWithRange:NSMakeRange(startingRange.location + 2, 3)];
+//                        rating = [rating stringByReplacingOccurrencesOfString:@" " withString:@""];
+//                        success = true;
+//                        self.ratebeerRating = rating;
+//                        self.ratebeerUrl = [NSURL URLWithString:url];
+//                    } else {
+//                        NSLog(@"Beer %@ by %@ on Ratebeer exists but no correct rating could be found", self.beerInfo.name, self.beerInfo.brewery);
+//                    }
                 } else {
                     NSLog(@"Failed to find the title for beer %@ by %@ on its Ratebeer page", self.beerInfo.name, self.beerInfo.brewery);
                 }
@@ -287,7 +298,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     RatingBrowseViewController *ratingBrowser = segue.destinationViewController;
-    ratingBrowser.ratingDetailItem = self.buttonUrls[((UIButton*) sender).restorationIdentifier];
+    ratingBrowser.ratingUrlItem = self.buttonUrls[((UIButton*) sender).restorationIdentifier];
 }
 
 @end

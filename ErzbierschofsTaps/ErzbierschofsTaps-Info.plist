@@ -14,6 +14,12 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
+				<string>erz_icon_retina_spotlight</string>
+				<string>blackButton</string>
+				<string>blueButtonHighlight</string>
+				<string>tanButton</string>
+				<string>blackButtonHighlight</string>
+				<string>blueButton</string>
 				<string>erz_icon</string>
 				<string>erz_icon_retina</string>
 				<string>Default</string>
@@ -38,8 +44,6 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>NSMainNibFile~ipad</key>
-	<string>MainStoryboard_iPhone-iPad</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard_iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>
