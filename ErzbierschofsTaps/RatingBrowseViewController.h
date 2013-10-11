@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MBProgressHUD.h"
 
-@interface RatingBrowseViewController : UIViewController
+@interface RatingBrowseViewController : UIViewController <UIWebViewDelegate>
 @property (strong, nonatomic) IBOutlet UIWebView *webView;
-
 @property (strong) NSURL *ratingUrl;
 @property (strong, nonatomic) id ratingUrlItem;
 @end

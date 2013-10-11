@@ -8,7 +8,7 @@
 #import "TapInfo.h"
 #import <UIKit/UIKit.h>
 
-@interface BeerDetailsViewController : UIViewController
+@interface BeerDetailsViewController : UIViewController 
 @property (nonatomic, weak) IBOutlet UILabel* nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel* breweryLabel;
 @property (nonatomic, weak) IBOutlet UILabel* alcoholLabel;
