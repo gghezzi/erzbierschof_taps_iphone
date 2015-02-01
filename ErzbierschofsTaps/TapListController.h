@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Bar.h"
 
-@interface DetailViewController : UITableViewController{
+@interface TapListController : UITableViewController{
     IBOutlet UIButton *refreshButton;
 }
 @property (nonatomic, retain) UIButton *refreshButton;

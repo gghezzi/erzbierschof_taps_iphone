@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<array>
+		<string>Erzbierschof Krone</string>
+		<string>Erzbierschof Nightrider</string>
+		<string>Erzbierschof</string>
+		<string>Erzbierschof Punkt</string>
+	</array>
+	<key>url</key>
+	<array>
+		<string>http://krone.erzbierschof.ch/on-tap</string>
+		<string>http://blackrider.erzbierschof.ch/on-tap</string>
+		<string>http://bar.erzbierschof.ch/on-tap</string>
+		<string>http://punkt.erzbierschof.ch/on-tap</string>
+	</array>
+	<key>image</key>
+	<array>
+		<string>erz_bern.png</string>
+		<string>erz_zurich.png</string>
+		<string>erz_liebefeld.png</string>
+		<string>erz_winti.png</string>
+	</array>
+	<key>latitude</key>
+	<array>
+		<real>46.9487</real>
+		<real>47.377354</real>
+		<real>46.928198</real>
+		<real>47.500489</real>
+	</array>
+	<key>longitude</key>
+	<array>
+		<real>7.452939</real>
+		<real>8.532906000000001</real>
+		<real>7.416452</real>
+		<real>8.730093999999999</real>
+	</array>
+	<key>address</key>
+	<array>
+		<string>Postgasse 59</string>
+		<string>Freischützgasse 10</string>
+		<string>Könizstrasse 276</string>
+		<string>Stadthausstrasse 53</string>
+	</array>
+	<key>city</key>
+	<array>
+		<string>Bern</string>
+		<string>Zurich</string>
+		<string>Liebefeld</string>
+		<string>Winterthur</string>
+	</array>
+	<key>phones</key>
+	<array>
+		<string>+410313111554</string>
+		<string>+410432438866</string>
+		<string>+410319717275</string>
+		<string>+41522125252</string>
+	</array>
+</dict>
+</plist>

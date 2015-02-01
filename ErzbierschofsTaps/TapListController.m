@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Giacomo Ghezzi. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import "TapListController.h"
 #import "BeerDetailsViewController.h"
 #import "TFHpple.h"
 #import "TapInfo.h"
@@ -15,7 +15,7 @@
 #import "Reachability.h"
 #import "MBProgressHUD.h"
 
-@implementation DetailViewController
+@implementation TapListController
 
 @synthesize refreshButton;
 
@@ -134,6 +134,8 @@
     NSString *xQueryString = @"//table[@class='tabtable-gr_alterora_elemental_1_grey_2s2']/tbody/tr";
     NSArray *beerNodes = [beersParser searchWithXPathQuery:xQueryString];        
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+    NSInteger totBeers = [beerNodes count];
+    [prefs setInteger:totBeers forKey:[NSString stringWithFormat:@"tot_beers"]];
     if ([beerNodes count] > 0) {
         for (int i = 1; i < [beerNodes count]; i++){
             TFHppleElement *element = beerNodes[i];
@@ -141,28 +143,22 @@
             [newTaps addObject:tap];
             if ([[[UIDevice currentDevice] systemVersion] compare:@"7.0" options:NSNumericSearch] == NSOrderedAscending) {
                 // less than iOS 7
-                tap.brewery = [self getContent:element.children[2]];
-                if (tap.brewery == NULL) {
-                    NSException *e = [NSException
-                                      exceptionWithName:@"NSInternalInconsistencyException"
-                                      reason:@"File Not Found on System"
-                                      userInfo:nil];
-                    @throw e;
-                }
                 tap.name = [self getContent:element.children[6]];
-                tap.style = [self getContent:element.children[8]];
-                tap.abv = [self getContent:element.children[10]];
-                tap.quantity = [self getContent:element.children[12]];
+                if (tap.name != NULL) {
+                    tap.brewery = [self getContent:element.children[2]];
+                    tap.style = [self getContent:element.children[8]];
+                    tap.abv = [self getContent:element.children[10]];
+                    tap.quantity = [self getContent:element.children[12]];
+                }
             } else {
                 // iOS 7 or more
-                tap.brewery = [self getContent:element.children[3]];
-                if (tap.brewery == NULL) {
-                    success = false;
-                }
                 tap.name = [self getContent:element.children[7]];
-                tap.style = [self getContent:element.children[9]];
-                tap.abv = [self getContent:element.children[11]];
-                tap.quantity = [self getContent:element.children[13]];
+                if (tap.name != NULL) {
+                    tap.brewery = [self getContent:element.children[3]];
+                    tap.style = [self getContent:element.children[9]];
+                    tap.abv = [self getContent:element.children[11]];
+                    tap.quantity = [self getContent:element.children[13]];
+                }
             }
             tap.tapNum = [NSString stringWithFormat:@"%i", i];
             // Saving the information for future use (e.g. If I can't load new info)
@@ -175,6 +171,8 @@
             [prefs setObject:tap.tapNum forKey:[NSString stringWithFormat:@"%@%@", prefix, @"tapNum"]];
         }
         success = true;
+    } else {
+        success = false;
     }
     self.taps = newTaps;
     [self.tableView reloadData];
@@ -186,18 +184,21 @@
     NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
     NSMutableArray *newTaps = [[NSMutableArray alloc] initWithCapacity:0];
     // In case I could not fetch the info from the webpage, I load the cached data (if there's any)
-    for (int i = 1; i <= 15; i++){
-        TapInfo *tap = [[TapInfo alloc] init];
-        [newTaps addObject:tap];
-        NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
-        if ([prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]] != nil) {
-            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
-            tap.name = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
-            tap.brewery = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
-            tap.abv  = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
-            tap.style = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
-            tap.quantity = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
-            tap.tapNum = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"tapNum"]];
+    NSInteger totBeers = [prefs integerForKey:[NSString stringWithFormat:@"tot_beers"]];
+    if (totBeers > 0) {
+        for (int i = 1; i <= 15; i++){
+            TapInfo *tap = [[TapInfo alloc] init];
+            [newTaps addObject:tap];
+            NSString *prefix = [NSString stringWithFormat:@"%@_tap_%i_", self.bar.name, i];
+            if ([prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]] != nil) {
+//            NSUserDefaults *prefs = [NSUserDefaults standardUserDefaults];
+                tap.name = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"name"]];
+                tap.brewery = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"brewery"]];
+                tap.abv  = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"abv"]];
+                tap.style = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"style"]];
+                tap.quantity = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"quantity"]];
+                tap.tapNum = [prefs stringForKey:[NSString stringWithFormat:@"%@%@", prefix, @"tapNum"]];
+            }
         }
     }
     if ([newTaps count] > 0) {
@@ -232,7 +233,7 @@
 
 // Updates the tableView with the tap info fetched
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"TapTableCell";//I'm here!
+    static NSString *cellIdentifier = @"TapTableCell";
     
     TapTableCell *cell = (TapTableCell *)[tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
@@ -246,6 +247,9 @@
         cell.detailsLabel.text = [NSString stringWithFormat:@"%@, %@", thisBeer.style, thisBeer.abv];
         cell.tapNumLabel.text = [NSString stringWithFormat:@"%ld", (long) indexPath.row + 1];
         cell.amountLabel.text = thisBeer.quantity;
+    } else {
+        cell.nameLabel.text = @"No beer on tap";
+        cell.tapNumLabel.text = [NSString stringWithFormat:@"%ld", (long) indexPath.row + 1];
     }
     return cell;
 }
@@ -274,11 +278,11 @@
 {
     // Find the selected cell in the usual way
     TapTableCell *cell = (TapTableCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    [self performSegueWithIdentifier:@"beerDetails" sender:cell];
-    // Check if this is the cell I want to segue from by using the reuseIdenifier
-    // which I set in the "Identifier" field in Interface Builder
-    
+    if (![cell.nameLabel.text  isEqual: @"No beer on tap"]) {
+        //Doing the segue only if there is a valid beer
+        [self performSegueWithIdentifier:@"beerDetails" sender:cell];
     }
+}
     
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -286,5 +290,6 @@
     TapInfo *beerInfo = [self.taps objectAtIndex:self.tableView.indexPathForSelectedRow.row];
     beerDetailController.beerDetailItem = beerInfo;
 }
+
 
 @end

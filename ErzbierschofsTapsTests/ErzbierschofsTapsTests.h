@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Giacomo Ghezzi. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ErzbierschofsTapsTests : SenTestCase
+@interface ErzbierschofsTapsTests : XCTestCase
 
 @end

@@ -171,7 +171,7 @@
 - (NSDictionary*) getUntappdJson:(NSString*)subUrl additionalParams:(NSString *)additionalParams{
     NSString *clientId = @"5F1CDF4BD4B28B28432318D38F1874644E083173";
     NSString *clientSecret = @"C1CBCF1927CB9743781C7C2960E29B0C0D48BF93";
-    NSString *apiAddress = @"http://api.untappd.com/v4";
+    NSString *apiAddress = @"https://api.untappd.com/v4";
     
     NSString *url = [NSString stringWithFormat: @"%@%@?client_id=%@&client_secret=%@&%@", apiAddress, subUrl, clientId, clientSecret, additionalParams];
     NSMutableURLRequest *detailsRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
@@ -235,7 +235,7 @@
     NSData *data = [postString dataUsingEncoding:NSUTF8StringEncoding];
     [beersListRequest setHTTPBody:data];
     [beersListRequest setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
-    [beersListRequest setValue:[NSString stringWithFormat:@"%u", [data length]] forHTTPHeaderField:@"Content-Length"];
+    [beersListRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[data length]] forHTTPHeaderField:@"Content-Length"];
     NSURLResponse* requestResponse;
     NSError* requestError = nil;
     //Capturing server response
@@ -267,22 +267,12 @@
             } else {
                 TFHpple *detailsParser = [TFHpple hppleWithHTMLData:detailsRequestResult];
                  NSString *xQueryString = @"//div[span[contains(.,'overall')]]";
-//                NSString *xQueryString = @"//title";
                 NSArray *detailsNodes = [detailsParser searchWithXPathQuery:xQueryString];
                 if ([detailsNodes count] > 0) {
-                    self.ratebeerRating = [NSString stringWithFormat: @"%@", [[detailsNodes[0] children][2] content]];
+                    [[[detailsNodes[1] children][2]children][0] content];
+                    self.ratebeerRating = [NSString stringWithFormat: @"%@", [[[detailsNodes[1] children][2]children][0] content]];
                     self.ratebeerUrl = [NSURL URLWithString:url];
                     success = true;
-//                    NSRange startingRange = [[[detailsNodes[0] firstChild] content] rangeOfString:@"-" options:NSBackwardsSearch];
-//                    if (startingRange.length > 0) {
-//                        NSString *rating = [[[detailsNodes[0] firstChild] content] substringWithRange:NSMakeRange(startingRange.location + 2, 3)];
-//                        rating = [rating stringByReplacingOccurrencesOfString:@" " withString:@""];
-//                        success = true;
-//                        self.ratebeerRating = rating;
-//                        self.ratebeerUrl = [NSURL URLWithString:url];
-//                    } else {
-//                        NSLog(@"Beer %@ by %@ on Ratebeer exists but no correct rating could be found", self.beerInfo.name, self.beerInfo.brewery);
-//                    }
                 } else {
                     NSLog(@"Failed to find the title for beer %@ by %@ on its Ratebeer page", self.beerInfo.name, self.beerInfo.brewery);
                 }

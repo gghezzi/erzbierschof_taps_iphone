@@ -18,20 +18,17 @@
 		A24E097B177451EF00DC79DE /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A24E097A177451EF00DC79DE /* Default@2x.png */; };
 		A24E097D177451EF00DC79DE /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A24E097C177451EF00DC79DE /* Default-568h@2x.png */; };
 		A24E0980177451EF00DC79DE /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */; };
-		A24E0986177451EF00DC79DE /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0985177451EF00DC79DE /* MasterViewController.m */; };
-		A24E0989177451EF00DC79DE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0988177451EF00DC79DE /* DetailViewController.m */; };
-		A24E0991177451EF00DC79DE /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0990177451EF00DC79DE /* SenTestingKit.framework */; };
+		A24E0989177451EF00DC79DE /* TapListController.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E0988177451EF00DC79DE /* TapListController.m */; };
 		A24E0992177451EF00DC79DE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0966177451EF00DC79DE /* UIKit.framework */; };
 		A24E0993177451EF00DC79DE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E0968177451EF00DC79DE /* Foundation.framework */; };
 		A24E099B177451F000DC79DE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A24E0999177451F000DC79DE /* InfoPlist.strings */; };
 		A24E099E177451F000DC79DE /* ErzbierschofsTapsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E099D177451F000DC79DE /* ErzbierschofsTapsTests.m */; };
 		A24E09AC1774579700DC79DE /* Bar.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09AB1774579700DC79DE /* Bar.m */; };
 		A24E09B017745EAA00DC79DE /* TapInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09AF17745EAA00DC79DE /* TapInfo.m */; };
-		A24E09B91774718600DC79DE /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B41774718600DC79DE /* TFHpple.m */; };
-		A24E09BA1774718600DC79DE /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B61774718600DC79DE /* TFHppleElement.m */; };
-		A24E09BB1774718600DC79DE /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A24E09B81774718600DC79DE /* XPathQuery.m */; };
 		A24E09BD1774721600DC79DE /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A24E09BC1774721600DC79DE /* libxml2.2.dylib */; };
 		A259560017F97FE700629CA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A25955FF17F97FE700629CA7 /* Images.xcassets */; };
+		A273AA981A799C3D008798A3 /* bars.plist in Resources */ = {isa = PBXBuildFile; fileRef = A273AA971A799C3D008798A3 /* bars.plist */; };
+		A273AA9A1A7E9D64008798A3 /* erz_liebefeld_l.png in Resources */ = {isa = PBXBuildFile; fileRef = A273AA991A7E9D64008798A3 /* erz_liebefeld_l.png */; };
 		A2779C1217F98DE300390C12 /* UIApplication+SimulatorRemoteNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = A2779C1117F98DE300390C12 /* UIApplication+SimulatorRemoteNotifications.m */; };
 		A2852C911779CCD600001FFA /* erz_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A2852C901779CCD600001FFA /* erz_icon.png */; };
 		A2852C951779CD3700001FFA /* erz_icon_retina.png in Resources */ = {isa = PBXBuildFile; fileRef = A2852C941779CD3700001FFA /* erz_icon_retina.png */; };
@@ -41,6 +38,12 @@
 		A2AF31081778862B008F106F /* TapTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A2AF31071778862B008F106F /* TapTableCell.m */; };
 		A2BF24C917D48D6A00D1C81D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BF24C817D48D6A00D1C81D /* MBProgressHUD.m */; };
 		A2BF24CB17D48ED000D1C81D /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = A2BF24C817D48D6A00D1C81D /* MBProgressHUD.m */; };
+		A2E27BC31A72B8CC00D372C7 /* erz_bern.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E27BC11A72B8CC00D372C7 /* erz_bern.png */; };
+		A2E27BC41A72B8CC00D372C7 /* erz_zurich.png in Resources */ = {isa = PBXBuildFile; fileRef = A2E27BC21A72B8CC00D372C7 /* erz_zurich.png */; };
+		A2E27BC61A72C3E300D372C7 /* BarPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2E27BC51A72C3E300D372C7 /* BarPageController.m */; };
+		A2EAD3B2190574BE004F72B9 /* TFHpple.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EAD3AD190574BE004F72B9 /* TFHpple.m */; };
+		A2EAD3B3190574BE004F72B9 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EAD3AF190574BE004F72B9 /* TFHppleElement.m */; };
+		A2EAD3B4190574BE004F72B9 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = A2EAD3B1190574BE004F72B9 /* XPathQuery.m */; };
 		A2F13B6217FAFA5700D0FB90 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F13B6117FAFA5700D0FB90 /* Reachability.m */; };
 		A2F13B6417FAFC3600D0FB90 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2F13B6317FAFC3600D0FB90 /* SystemConfiguration.framework */; };
 		A2F13B6F17FB118000D0FB90 /* RatingBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2F13B6E17FB118000D0FB90 /* RatingBrowseViewController.m */; };
@@ -116,12 +119,9 @@
 		A24E097A177451EF00DC79DE /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A24E097C177451EF00DC79DE /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A24E097F177451EF00DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		A24E0984177451EF00DC79DE /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		A24E0985177451EF00DC79DE /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		A24E0987177451EF00DC79DE /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		A24E0988177451EF00DC79DE /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ErzbierschofsTapsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A24E0990177451EF00DC79DE /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A24E0987177451EF00DC79DE /* TapListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TapListController.h; sourceTree = "<group>"; };
+		A24E0988177451EF00DC79DE /* TapListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TapListController.m; sourceTree = "<group>"; };
+		A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ErzbierschofsTapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24E0998177451F000DC79DE /* ErzbierschofsTapsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ErzbierschofsTapsTests-Info.plist"; sourceTree = "<group>"; };
 		A24E099A177451F000DC79DE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A24E099C177451F000DC79DE /* ErzbierschofsTapsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErzbierschofsTapsTests.h; sourceTree = "<group>"; };
@@ -130,14 +130,10 @@
 		A24E09AB1774579700DC79DE /* Bar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bar.m; sourceTree = "<group>"; };
 		A24E09AE17745EAA00DC79DE /* TapInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapInfo.h; sourceTree = "<group>"; };
 		A24E09AF17745EAA00DC79DE /* TapInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapInfo.m; sourceTree = "<group>"; };
-		A24E09B31774718600DC79DE /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHpple.h; path = "../../../../../Downloads/hpple-master/TFHpple.h"; sourceTree = "<group>"; };
-		A24E09B41774718600DC79DE /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHpple.m; path = "../../../../../Downloads/hpple-master/TFHpple.m"; sourceTree = "<group>"; };
-		A24E09B51774718600DC79DE /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TFHppleElement.h; path = "../../../../../Downloads/hpple-master/TFHppleElement.h"; sourceTree = "<group>"; };
-		A24E09B61774718600DC79DE /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TFHppleElement.m; path = "../../../../../Downloads/hpple-master/TFHppleElement.m"; sourceTree = "<group>"; };
-		A24E09B71774718600DC79DE /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPathQuery.h; path = "../../../../../Downloads/hpple-master/XPathQuery.h"; sourceTree = "<group>"; };
-		A24E09B81774718600DC79DE /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPathQuery.m; path = "../../../../../Downloads/hpple-master/XPathQuery.m"; sourceTree = "<group>"; };
 		A24E09BC1774721600DC79DE /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		A25955FF17F97FE700629CA7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A273AA971A799C3D008798A3 /* bars.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bars.plist; sourceTree = "<group>"; };
+		A273AA991A7E9D64008798A3 /* erz_liebefeld_l.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erz_liebefeld_l.png; sourceTree = "<group>"; };
 		A2779C1017F98DE300390C12 /* UIApplication+SimulatorRemoteNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+SimulatorRemoteNotifications.h"; sourceTree = "<group>"; };
 		A2779C1117F98DE300390C12 /* UIApplication+SimulatorRemoteNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+SimulatorRemoteNotifications.m"; sourceTree = "<group>"; };
 		A2852C901779CCD600001FFA /* erz_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = erz_icon.png; path = ../erz_icon.png; sourceTree = "<group>"; };
@@ -150,6 +146,16 @@
 		A2BBD5F517C2452700415639 /* ErzbierschofsTaps.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ErzbierschofsTaps.entitlements; sourceTree = "<group>"; };
 		A2BF24C717D48D6A00D1C81D /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		A2BF24C817D48D6A00D1C81D /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		A2E27BC11A72B8CC00D372C7 /* erz_bern.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erz_bern.png; sourceTree = "<group>"; };
+		A2E27BC21A72B8CC00D372C7 /* erz_zurich.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = erz_zurich.png; sourceTree = "<group>"; };
+		A2E27BC51A72C3E300D372C7 /* BarPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarPageController.m; sourceTree = "<group>"; };
+		A2E27BC71A72C3FA00D372C7 /* BarPageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BarPageController.h; sourceTree = "<group>"; };
+		A2EAD3AC190574BE004F72B9 /* TFHpple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHpple.h; sourceTree = "<group>"; };
+		A2EAD3AD190574BE004F72B9 /* TFHpple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHpple.m; sourceTree = "<group>"; };
+		A2EAD3AE190574BE004F72B9 /* TFHppleElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TFHppleElement.h; sourceTree = "<group>"; };
+		A2EAD3AF190574BE004F72B9 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
+		A2EAD3B0190574BE004F72B9 /* XPathQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPathQuery.h; sourceTree = "<group>"; };
+		A2EAD3B1190574BE004F72B9 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		A2F13B6017FAFA5700D0FB90 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		A2F13B6117FAFA5700D0FB90 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		A2F13B6317FAFC3600D0FB90 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -225,7 +231,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24E0991177451EF00DC79DE /* SenTestingKit.framework in Frameworks */,
 				A24E0992177451EF00DC79DE /* UIKit.framework in Frameworks */,
 				A24E0993177451EF00DC79DE /* Foundation.framework in Frameworks */,
 			);
@@ -249,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				A24E0963177451EF00DC79DE /* ErzbierschofsTaps.app */,
-				A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.octest */,
+				A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -264,7 +269,6 @@
 				A24E0966177451EF00DC79DE /* UIKit.framework */,
 				A24E0968177451EF00DC79DE /* Foundation.framework */,
 				A24E096A177451EF00DC79DE /* CoreGraphics.framework */,
-				A24E0990177451EF00DC79DE /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -290,6 +294,9 @@
 		A24E096D177451EF00DC79DE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A273AA991A7E9D64008798A3 /* erz_liebefeld_l.png */,
+				A2E27BC11A72B8CC00D372C7 /* erz_bern.png */,
+				A2E27BC21A72B8CC00D372C7 /* erz_zurich.png */,
 				A2F13BC617FDAFBB00D0FB90 /* poweredbyuntappd_a_grey_small.png */,
 				A2F13BCE17FDBB2900D0FB90 /* erz_icon_retina_spotlight.png */,
 				A2F13BCC17FDB3DC00D0FB90 /* poweredbyuntappd_b_white_large.png */,
@@ -351,10 +358,8 @@
 				A24E097E177451EF00DC79DE /* MainStoryboard_iPhone.storyboard */,
 				A2F13BAF17FC41CF00D0FB90 /* LocationsViewController.h */,
 				A2F13BB017FC41CF00D0FB90 /* LocationsViewController.m */,
-				A24E0984177451EF00DC79DE /* MasterViewController.h */,
-				A24E0985177451EF00DC79DE /* MasterViewController.m */,
-				A24E0987177451EF00DC79DE /* DetailViewController.h */,
-				A24E0988177451EF00DC79DE /* DetailViewController.m */,
+				A24E0987177451EF00DC79DE /* TapListController.h */,
+				A24E0988177451EF00DC79DE /* TapListController.m */,
 				A2AF3104177884F1008F106F /* TapTableCell.xib */,
 				A2AF31061778862B008F106F /* TapTableCell.h */,
 				A2AF31071778862B008F106F /* TapTableCell.m */,
@@ -366,6 +371,9 @@
 				A2F13BB717FC5C0000D0FB90 /* FindBarViewController.m */,
 				A2F13BBB17FD8ABD00D0FB90 /* BarLocation.h */,
 				A2F13BBC17FD8ABD00D0FB90 /* BarLocation.m */,
+				A2E27BC51A72C3E300D372C7 /* BarPageController.m */,
+				A2E27BC71A72C3FA00D372C7 /* BarPageController.h */,
+				A273AA971A799C3D008798A3 /* bars.plist */,
 			);
 			name = GUI;
 			sourceTree = "<group>";
@@ -373,12 +381,12 @@
 		A24E09B21774714100DC79DE /* hpple */ = {
 			isa = PBXGroup;
 			children = (
-				A24E09B31774718600DC79DE /* TFHpple.h */,
-				A24E09B41774718600DC79DE /* TFHpple.m */,
-				A24E09B51774718600DC79DE /* TFHppleElement.h */,
-				A24E09B61774718600DC79DE /* TFHppleElement.m */,
-				A24E09B71774718600DC79DE /* XPathQuery.h */,
-				A24E09B81774718600DC79DE /* XPathQuery.m */,
+				A2EAD3AC190574BE004F72B9 /* TFHpple.h */,
+				A2EAD3AD190574BE004F72B9 /* TFHpple.m */,
+				A2EAD3AE190574BE004F72B9 /* TFHppleElement.h */,
+				A2EAD3AF190574BE004F72B9 /* TFHppleElement.m */,
+				A2EAD3B0190574BE004F72B9 /* XPathQuery.h */,
+				A2EAD3B1190574BE004F72B9 /* XPathQuery.m */,
 			);
 			name = hpple;
 			sourceTree = "<group>";
@@ -482,8 +490,8 @@
 			);
 			name = ErzbierschofsTapsTests;
 			productName = ErzbierschofsTapsTests;
-			productReference = A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = A24E098F177451EF00DC79DE /* ErzbierschofsTapsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -491,6 +499,7 @@
 		A24E095B177451EF00DC79DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0610;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Giacomo Ghezzi";
 				TargetAttributes = {
@@ -532,9 +541,11 @@
 				A24E0979177451EF00DC79DE /* Default.png in Resources */,
 				A2F13B9717FB254D00D0FB90 /* greenButton@2x.png in Resources */,
 				A2F13B9E17FB254D00D0FB90 /* greyButtonHighlight@2x.png in Resources */,
+				A2E27BC41A72B8CC00D372C7 /* erz_zurich.png in Resources */,
 				A2F13BAD17FB296A00D0FB90 /* tanButton.png in Resources */,
 				A2F13BA917FB254D00D0FB90 /* whiteButtonHighlight.png in Resources */,
 				A2F13BA517FB254D00D0FB90 /* tanButtonHighlight.png in Resources */,
+				A273AA9A1A7E9D64008798A3 /* erz_liebefeld_l.png in Resources */,
 				A2F13B8E17FB254D00D0FB90 /* blackButton.png in Resources */,
 				A2F13B9B17FB254D00D0FB90 /* greyButton@2x.png in Resources */,
 				A2F13B9517FB254D00D0FB90 /* blueButtonHighlight@2x.png in Resources */,
@@ -558,8 +569,10 @@
 				A2F13BCF17FDBB2900D0FB90 /* erz_icon_retina_spotlight.png in Resources */,
 				A2F13B9017FB254D00D0FB90 /* blackButtonHighlight.png in Resources */,
 				A2852C911779CCD600001FFA /* erz_icon.png in Resources */,
+				A2E27BC31A72B8CC00D372C7 /* erz_bern.png in Resources */,
 				A2852C951779CD3700001FFA /* erz_icon_retina.png in Resources */,
 				A2F13BAA17FB254D00D0FB90 /* whiteButtonHighlight@2x.png in Resources */,
+				A273AA981A799C3D008798A3 /* bars.plist in Resources */,
 				A2F13B9D17FB254D00D0FB90 /* greyButtonHighlight.png in Resources */,
 				A2F13B9317FB254D00D0FB90 /* blueButton@2x.png in Resources */,
 				A240CE5417980D9500473C94 /* todos.rtf in Resources */,
@@ -606,22 +619,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2BF24CB17D48ED000D1C81D /* MBProgressHUD.m in Sources */,
+				A2EAD3B4190574BE004F72B9 /* XPathQuery.m in Sources */,
 				A24E0973177451EF00DC79DE /* main.m in Sources */,
 				A24E0977177451EF00DC79DE /* AppDelegate.m in Sources */,
-				A24E0986177451EF00DC79DE /* MasterViewController.m in Sources */,
-				A24E0989177451EF00DC79DE /* DetailViewController.m in Sources */,
+				A2EAD3B3190574BE004F72B9 /* TFHppleElement.m in Sources */,
+				A24E0989177451EF00DC79DE /* TapListController.m in Sources */,
 				A2F7272F17E720C4007EFEC1 /* BeerDetailsViewController.m in Sources */,
 				A2779C1217F98DE300390C12 /* UIApplication+SimulatorRemoteNotifications.m in Sources */,
 				A24E09AC1774579700DC79DE /* Bar.m in Sources */,
 				A24E09B017745EAA00DC79DE /* TapInfo.m in Sources */,
-				A24E09B91774718600DC79DE /* TFHpple.m in Sources */,
+				A2EAD3B2190574BE004F72B9 /* TFHpple.m in Sources */,
 				A2F13B6217FAFA5700D0FB90 /* Reachability.m in Sources */,
 				A2F13BB817FC5C0000D0FB90 /* FindBarViewController.m in Sources */,
-				A24E09BA1774718600DC79DE /* TFHppleElement.m in Sources */,
 				A2F13B6F17FB118000D0FB90 /* RatingBrowseViewController.m in Sources */,
 				A2F13BBD17FD8ABD00D0FB90 /* BarLocation.m in Sources */,
-				A24E09BB1774718600DC79DE /* XPathQuery.m in Sources */,
 				A2AF31081778862B008F106F /* TapTableCell.m in Sources */,
+				A2E27BC61A72C3E300D372C7 /* BarPageController.m in Sources */,
 				A2F13BB117FC41CF00D0FB90 /* LocationsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,8 +698,10 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Giacomo Ghezzi (6KDT7QUM6E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Giacomo Ghezzi (6KDT7QUM6E)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -698,13 +713,14 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "9C27EA0E-4EC9-4EB7-89AA-B7CA52F48A9C";
+				PROVISIONING_PROFILE = "785EAE55-FB65-4A78-AA2B-2FADEF291C93";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Debug;
 		};
@@ -720,16 +736,18 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Giacomo Ghezzi (6KDT7QUM6E)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Giacomo Ghezzi (6KDT7QUM6E)";
 				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "9C27EA0E-4EC9-4EB7-89AA-B7CA52F48A9C";
+				PROVISIONING_PROFILE = "785EAE55-FB65-4A78-AA2B-2FADEF291C93";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = YES;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -748,7 +766,7 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "ErzbierschofsTaps/ErzbierschofsTaps-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60711C35-D906-47E4-885F-EE0FB342D336";
@@ -769,7 +787,7 @@
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = "ErzbierschofsTaps/ErzbierschofsTaps-Info.plist";
 				INSTALL_PATH = "$(LOCAL_APPS_DIR)";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "60711C35-D906-47E4-885F-EE0FB342D336";
@@ -787,13 +805,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
 				INFOPLIST_FILE = "ErzbierschofsTapsTests/ErzbierschofsTapsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -804,13 +822,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ErzbierschofsTaps/ErzbierschofsTaps-Prefix.pch";
 				INFOPLIST_FILE = "ErzbierschofsTapsTests/ErzbierschofsTapsTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

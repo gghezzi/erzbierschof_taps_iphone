@@ -15,18 +15,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     //Loading the info about the different Erzbierschof locations
-    Bar *bar1 = [[Bar alloc] initWithName:@"Erzbierschof" url:@"http://bar.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_liebefeld.png"] phone:[NSURL URLWithString:@"telprompt://+410319717275"] latitude:46.928198 longitude:7.416452 address:@"Könizstrasse 276" city:@"Liebefeld"];
-    Bar *bar2 = [[Bar alloc] initWithName:@"Erzbierschof Punkt" url:@"http://punkt.erzbierschof.ch/on-tap" image:[UIImage imageNamed:@"erz_winti.png"] phone:[NSURL URLWithString:@"telprompt://+41522125252"] latitude:47.500489 longitude:8.730094 address:@"Stadthausstrasse 53" city:@"Winterthur" ];
-//    NSMutableArray *bars = [NSMutableArray arrayWithObjects:bar1, bar2, nil];
-    
+    NSMutableArray *bars = [NSMutableArray array];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"bars" ofType:@"plist"];
+    // Load the file content and read the data into arrays
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:path];
+    NSArray *names = [dict objectForKey:@"name"];
+    NSArray *urls = [dict objectForKey:@"url"];
+    NSArray *images = [dict objectForKey:@"image"];
+    NSArray *latitudes = [dict objectForKey:@"latitude"];
+    NSArray *longitudes = [dict objectForKey:@"longitude"];
+    NSArray *addresses = [dict objectForKey:@"address"];
+    NSArray *cities = [dict objectForKey:@"city"];
+    NSArray *phones = [dict objectForKey:@"phones"];
+    for (int i=0; i<4; i++){
+        Bar *bar = [[Bar alloc] initWithName:names[i] url:urls[i] image:[UIImage imageNamed:images[i]] phone:[NSURL URLWithString:[NSString stringWithFormat:@"telprompt://%@", phones[i]]] latitude:[latitudes[i] doubleValue] longitude:[longitudes[i] doubleValue] address:addresses[i] city:cities[i]];
+        [bars addObject:bar];
+    }
     UINavigationController * navController = (UINavigationController *) self.window.rootViewController;
     LocationsViewController * locationsController = [navController.viewControllers objectAtIndex:0];
-    locationsController.liebefeldBar = bar1;
-    locationsController.winterthurBar = bar2;
-    
-//    UINavigationController * navController = (UINavigationController *) self.window.rootViewController;
-//    MasterViewController * masterController = [navController.viewControllers objectAtIndex:0];
-//    masterController.bars = bars;
+    locationsController.bars = bars;
     
     return YES;
 }

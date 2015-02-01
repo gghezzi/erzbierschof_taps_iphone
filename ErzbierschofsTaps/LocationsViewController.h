@@ -11,15 +11,10 @@
 
 @interface LocationsViewController : UIViewController
 
-@property (nonatomic, weak) IBOutlet UIButton* tap_button_1;
-@property (nonatomic, weak) IBOutlet UIButton* tap_button_2;
-@property (nonatomic, weak) IBOutlet UIButton* call_button_1;
-@property (nonatomic, weak) IBOutlet UIButton* call_button_2;
-@property (nonatomic, weak) IBOutlet UIButton* find_button_1;
-@property (nonatomic, weak) IBOutlet UIButton* find_button_2;
-@property (strong) Bar *liebefeldBar;
-@property (strong) Bar *winterthurBar;
-@property (strong) NSMutableDictionary *tapButtonsMap;
-@property (strong) NSMutableDictionary *callButtonsMap;
-@property (strong) NSMutableDictionary *findButtonsMap;
+@property (nonatomic, weak) IBOutlet UIButton* zurich_button;
+@property (nonatomic, weak) IBOutlet UIButton* bern_button;
+@property (nonatomic, weak) IBOutlet UIButton* liebefeld_button;
+@property (nonatomic, weak) IBOutlet UIButton* winti_button;
+@property (strong) NSArray *bars;
+@property (strong) NSMutableDictionary *barButtonsMap;
 @end
